@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
@@ -61,8 +62,10 @@ class BookController extends Controller
     function booksDestroy($id)
     {
         $bk = Book::findorfail($id);
+        $bookImage = str_replace('storage', '', $bk->img);
+        Storage::delete('/public' . $bookImage);
         $bk->delete();
-        return redirect()->route("books.list");
+      return redirect()->route("books.list");
     }
 
     function booksEdit($id)

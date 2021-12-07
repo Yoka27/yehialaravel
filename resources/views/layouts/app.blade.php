@@ -13,8 +13,9 @@
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="{{route('books')}}" class="nav-link " aria-current="page">Home</a></li>
             <li class="nav-item"><a href="{{route('books.list')}}" class="nav-link " aria-current="page">Book List</a></li>
-            <li class="nav-item"><a href="{{route('books.add')}}" class="nav-link " aria-current="page">ADD Book</a>
-            </li>
+            <li class="nav-item"><a href="{{route('books.add')}}" class="nav-link " aria-current="page">ADD Book</a></li>
+            <li class="nav-item"><a href="{{route('courses.index')}}" class="nav-link " aria-current="page">Courses List</a></li>
+            <li class="nav-item"><a href="{{route('courses.create')}}" class="nav-link " aria-current="page">ADD Course</a></li>
         </ul>
     </header>
 </div>
@@ -23,6 +24,7 @@
     CopyRights@Yehia-Mohammed-Rashad-2022
 </div>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
 @yield("scriptsblock")
 </body>
 </html>
