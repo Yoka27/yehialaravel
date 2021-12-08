@@ -17,14 +17,14 @@ use App\Http\Controllers\CourseController;
 */
 Route::resource('courses',CourseController::class);
 
-Route::get('/books', [BookController::class, "books"])->name('books');
-Route::get('/books/list', [BookController::class, "booksList"])->name('books.list');
-Route::get('/books/add', [BookController::class, "booksAdd"])->name('books.add');
-Route::post('/books/save', [BookController::class, "booksStore"])->name('books.store');
+Route::get('/index', [BookController::class, "books"])->name('books');
+Route::get('/books', [BookController::class, "booksList"])->name('books.list');
+Route::get('/books/create', [BookController::class, "booksAdd"])->name('books.add');
+Route::post('/books', [BookController::class, "booksStore"])->name('books.store');
 Route::get('/books/{id}', [BookController::class, "booksId"])->name('books.book');
-Route::delete('/books/{id}/delete', [BookController::class, "booksDestroy"])->name('books.delete');
+Route::delete('/books/{id}', [BookController::class, "booksDestroy"])->name('books.delete');
 Route::get('/books/{id}/edit', [BookController::class, "booksEdit"])->name('books.edit');
-Route::put('/books/{id}/update', [BookController::class, "booksUpdate"])->name('books.update');
+Route::put('/books/{id}', [BookController::class, "booksUpdate"])->name('books.update');
 
 
 //courses routes
@@ -36,3 +36,7 @@ Route::put('/books/{id}/update', [BookController::class, "booksUpdate"])->name('
 //Route::post('/courses', [CourseController::class, "store"])->name('courses.store');
 //Route::delete('/courses/{course}', [CourseController::class, "destroy"])->name('courses.destroy');
 ///
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

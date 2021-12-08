@@ -1,5 +1,5 @@
 @extends("layouts/app")
-@section("contenctblock")
+@section("content")
     <div class="card text-center">
         <div class="card-header">Book Details</div>
         <div class="card-body">

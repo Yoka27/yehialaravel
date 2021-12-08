@@ -1,5 +1,5 @@
 @extends("layouts/app")
-@section("contenctblock")
+@section("content")
     <form class=" text-center" action="{{route('books.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <h1>Add Book</h1>

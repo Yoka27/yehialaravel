@@ -1,5 +1,5 @@
 @extends("layouts/app")
-@section("contenctblock")
+@section("content")
     <div class="card text-center">
         <table id="myTable" class="table-active text-center align-center ">
             <thead>

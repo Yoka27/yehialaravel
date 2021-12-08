@@ -1,5 +1,5 @@
 @extends("layouts/app")
-@section("contenctblock")
+@section("content")
     <form class="form text-center" action="{{route('books.update',$book->id)}}" method="post"
           enctype="multipart/form-data">
         @method('put')

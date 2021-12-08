@@ -1,5 +1,5 @@
 @extends("layouts/app")
-@section("contenctblock")
+@section("content")
     <form class=" text-center" action="{{route('courses.store')}}" method="post" >
         @csrf
         <h1>Add Course</h1>

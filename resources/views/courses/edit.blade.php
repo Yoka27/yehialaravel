@@ -1,5 +1,5 @@
 @extends("layouts/app")
-@section("contenctblock")
+@section("content")
     <form class=" text-center" action="{{route('courses.update',$course)}}" method="post" >
         @csrf
         @method('put')

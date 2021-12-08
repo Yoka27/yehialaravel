@@ -1,5 +1,5 @@
 @extends("layouts/app")
-@section("contenctblock")
+@section("content")
     <div class="card text-center">
         <table id="myTable" class="table-active text-center align-center ">
             <thead>
@@ -24,10 +24,10 @@
                             @method('delete')
                             <input name="_method" type="hidden" value="DELETE">
                             <button type="submit" class="btn btn-xs btn-danger btn-flat delete"
-                                id="del"  onclick="confirmDelete()" data-toggle="tooltip" title='Delete'>Delete
+                                    data-toggle="confirmation" onclick="deleteFunction()"  data-toggle="tooltip" title='Delete'>Delete
                             </button>
                         </form>
-
+{{--                        onclick="return confirm(`confirm delete course {{$course->name}} ?`)"--}}
                     </td>
                 </tr>
             @endforeach
@@ -36,26 +36,30 @@
     </div>
 @endsection
 @section('scriptsblock')
-{{--    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>--}}
-{{--    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>--}}
-{{--   <script>--}}
-{{--    $('#del').on('click',function(e){--}}
-{{--    e.preventDefault();--}}
-{{--    var form = $(this).parents('form');--}}
-{{--    Swal.fire({--}}
-{{--    title: 'Are you sure?',--}}
-{{--    text: "You won't be able to revert this!",--}}
-{{--    type: 'warning',--}}
-{{--    showCancelButton: true,--}}
-{{--    confirmButtonColor: '#3085d6',--}}
-{{--    cancelButtonColor: '#d33',--}}
-{{--    confirmButtonText: 'Yes, delete it!'--}}
-{{--    }).then((result) => {--}}
-{{--    if (result.value) {--}}
-{{--    form.submit();--}}
-{{--    }--}}
-{{--    });--}}
-{{--    });--}}
-{{--    </script>--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <script>
+        function deleteFunction() {
+            event.preventDefault(); // prevent form submit
+            var form = event.target.form; // storing the form
+            swal({
+                    title: "Are you sure?",
+                    text: "The Course will be Deleted permanently ",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, Delete it!",
+                    cancelButtonText: "No, cancel please!",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function(isConfirm){
+                    if (isConfirm) {
+                        form.submit();          // submitting the form when user press yes
+                    } else {
+                        swal("Cancelled", "Your Course is safe :)", "error");
+                    }
+                });
+        }
+    </script>
 @endsection
-
